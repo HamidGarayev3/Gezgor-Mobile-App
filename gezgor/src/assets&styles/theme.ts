@@ -24,10 +24,10 @@ export const theme = {
             500: 'white',
             900: '#ddd'
         },
-        blue: {
+        purple: {
             500: '#00aaff',
-            700: '#00aaff',
-            900: '#00aaff',
+            700: '#3D56F0',
+            900: '#4A43EC',
         },
         gray: '#aaa',
     },
