@@ -3,12 +3,12 @@ import React from 'react'
 import { theme } from '../assets&styles/theme'
 import { FontAwesomeIcon, FontAwesomeIconStyle } from '@fortawesome/react-native-fontawesome'
 import { faBasketball } from '@fortawesome/free-solid-svg-icons'
-import { FontawesomeObject, Icon } from '@fortawesome/fontawesome-svg-core'
+import { FontawesomeObject, Icon, IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 
 interface ExploreTopCategoryProps{
   backgroundColor:string,
-  iconName:Icon,
+  iconName:IconDefinition,
   buttonNamme:string
 }
 

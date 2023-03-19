@@ -1,17 +1,15 @@
-import { View, Text, StyleSheet,Dimensions, FlatList, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet,Dimensions, FlatList, TextInput, TouchableOpacity ,Pressable} from 'react-native'
 import React from 'react'
 import PostButton from '../components/Button/PostButton'
 import { theme } from '../assets&styles/theme'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faBarsStaggered,faBell,faMagnifyingGlass,faFilter,faPalette,faUtensils,faMusic,faBookmark } from '@fortawesome/free-solid-svg-icons'
-import { Searchbar } from 'react-native-paper';
-import { height, width } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass'
+import { faBarsStaggered,faBell,faMagnifyingGlass,faFilter,faPalette,faUtensils,faMusic,faBookmark,faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import ExploreTopCategory from '../components/ExploreTopCategory'
 import { Image } from '@rneui/base'
 
 const DATA=[
-  {"date":'10 JUN', "title":'International Band', "location":'36 Guild Street London,UK','image':'https://crowdbotics.ghost.io/content/images/2021/05/React-Native-Featured-Image.png'}
-  , {"date":'10 JUN', "title":'International Band', "location":'36 Guild Street London,UK','image':'https://crowdbotics.ghost.io/content/images/2021/05/React-Native-Featured-Image.png'}
+  {"date":'10 JUN', "title":'International Band', "location":'36 Guild Street London,UK','image':'https://s3-alpha-sig.figma.com/img/84a9/76ac/cf2178f37f5fdaf13d26c3580b71f85d?Expires=1679875200&Signature=KbLY4AvEAkzN0dSOHQFYG3dVZmObf3826QshrnuT7aYueB1IKHlUOrF0HRo3T8qQCuFE6l-a380ORk0l4SmLOWh22oUKZdGaQc6UL07BerZxyD9E1OjkMpPHWszLvr27dOSTii67C~XoJLwG3ZQAbnr95qFwpiXiEIieyWg~Xzbw01fqToYV8hJsuKBm5WMvLu1ftEaGn~92S47ag-hjlGp4Sc11MaEGuTWr043-HBLimKbjn-nAgS49h06WpOBUEnGIq~4W5DWx4JtFUJA9S43zS4Mxyzlf~xr1akBCZCve9-cVyA~TFsHfPNtCqTo90KwNMYjSip4PRAG2d2Impw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
+  , {"date":'10 JUN', "title":'International Band', "location":'36 Guild Street London,UK','image':'https://s3-alpha-sig.figma.com/img/6c71/bf2d/805db991ea266144b48ac8adde78bcf0?Expires=1679875200&Signature=hoWQVpVwehrzCa8BZv9x7zcSjazl0WYnLlLYvYT8Pzxcry6vMJn3GwJPcuyCVvI0z3P8SoixjTtuOjsIjY6E8MW-XMjKFOLTyHThRGw6Qt8IFPzJuIj7ntz0u0pLQuyv9XY96ZZAq7sDNJe20bCnOrVLQzV9aKlgcEf4fd-teadzu7s7QoEpgym9riMslTl0i2gg0JzQfx4JS3OB~VDnWnA0FBK4VasB6gZSVKOS8wIWk2BsAHPkzA1pOiRumBZnooocbjZY7CarRY97T4ISfJA1FTqF5-hdn960Mg1GuK8iU2GNWrP3As1GcCpTxOCZnpEGWv73QevnlXkMSh2jjg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
 ]
 const Explore = ({navigation}:any) => {
   const windowWidth = Dimensions.get('window').width;
@@ -45,7 +43,11 @@ const Explore = ({navigation}:any) => {
         </View>
         
       </View>
-      <View style={{flex:1}}></View>
+      <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:20,marginTop:50,marginBottom:20}}>
+        <Text style={{fontSize:18,color:'#120D26',fontWeight:'600'}}>Upcoming Events</Text>
+        <Pressable><Text style={{fontSize:14,color:'#747688',fontWeight:'600',marginLeft:140}} >See All</Text></Pressable>
+        <FontAwesomeIcon style={{marginTop:3}} size={14} color={theme.colors.white[900]} icon={faCaretRight}></FontAwesomeIcon>
+      </View>
       <View style={{flex:4,marginLeft:20}}>
       <FlatList 
       horizontal={true}
@@ -54,8 +56,23 @@ const Explore = ({navigation}:any) => {
       />
        
       </View>
-      <View style={{flex:2}}></View>
-      <View style={{flex:1}}></View>
+
+      <View style={{flex:2,justifyContent:'center',alignContent:'center',alignItems:'center'}}>
+        <View style={styles.ExploreInvateFriendsCard}>
+        <View style={{marginTop:20,width:120,marginLeft:20}}>
+              <Text style={{fontSize:18,fontWeight:'600',color:'#120D26'}}>Invate your friends</Text>
+              <Text style={{fontSize:13,fontWeight:'600',color:'#120D26'}}>Get 20$ free ticket</Text>
+            </View>
+            <Image style={{width:190,height:120,marginBottom:30}} source={{uri:'https://s3-alpha-sig.figma.com/img/d619/6b98/b6d6963630627a0c6689dd04a8fcd2f4?Expires=1679875200&Signature=cp3Ea0Y4AQ-seQ7DiT6W8qibYAUjgBbq9BOW8GKlWDnCUQQrRJuZC~YHxetiH39tjv00AmXZGxJu8EdGYTjrtxWx6Z~-6bvS1YqBWa1LE-ELGowD5izktOj8dFpkynLNQHk2ScxPgZPS-OZPRtCIgiCPgK2dWvn6MqYeAO6sYO6kh3glyGGLhDAJgHDUETPLlE3OMTMN009meX27S5cdhsMMro-njwTF-HokhxlGOaTubKwlwxZLA5hYUAdyL6kLQENVrkfL801C40wPThbKwfjV1HIj4NFw0LuMbEsYsYSc02qzIuqd4HFkSN7qEW1lFQuYa~3n3HO4ZLUKU1gW3g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}}></Image>
+
+        </View>
+      </View>
+
+      <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:20,marginTop:50,marginBottom:20}}>
+        <Text style={{fontSize:18,color:'#120D26',fontWeight:'600'}}>Nearby You</Text>
+        <Pressable><Text style={{fontSize:14,color:'#747688',fontWeight:'600',marginLeft:190}} >See All</Text></Pressable>
+        <FontAwesomeIcon style={{marginTop:3}} size={14} color={theme.colors.white[900]} icon={faCaretRight}></FontAwesomeIcon>
+      </View>
     </View>
   )
 }
@@ -63,16 +80,15 @@ const Explore = ({navigation}:any) => {
 
 const ExploreScreenCard = ({item,navigation, }:any) => {
 return (
-  <View style={styles.card}>
+  <Pressable style={styles.card}>
   <View style={{padding:10}}><Image source={{ uri: item.image }} style={styles.image} /></View>
-  <View style={{position:'absolute',zIndex:100,top:0,marginLeft:198,marginTop:30,backgroundColor:'white',width:30,height:30}}><FontAwesomeIcon size={14} color={'red'} icon={faBookmark}></FontAwesomeIcon></View>
-
+  <View style={styles.ExploreCardSaveIcon}><FontAwesomeIcon size={14} color={'red'} icon={faBookmark}></FontAwesomeIcon></View>
+  <View style={styles.ExploreCardDate}><Text style={styles.date}>{item.date}</Text></View>
   <View style={styles.content}>
-    <Text style={styles.date}>{item.date}</Text>
     <Text style={styles.title}>{item.title}</Text>
     <Text style={styles.location}>{item.location}</Text>
   </View>
-</View>
+  </Pressable>
 )
 }
 
@@ -113,7 +129,26 @@ const styles = StyleSheet.create({
     height:100,
     backgroundColor:'Orange'
 },
-
+ExploreCardSaveIcon:{position:'absolute',zIndex:100,top:0,marginLeft:190,marginTop:17,backgroundColor:'white',width:30,height:30,alignItems:'center',justifyContent:'center',borderRadius:8},
+ExploreCardDate:{
+  position:'absolute',
+  zIndex:100,
+  top:0,
+  backgroundColor:theme.colors.white[500],
+  borderRadius:8,
+  width:45,
+  height:45,
+  marginLeft:17,
+  marginTop:17
+},
+ExploreInvateFriendsCard:{
+  backgroundColor:'#D6FEFF',
+  width:328,
+  height:127,
+  marginTop:50,
+  borderRadius:8,
+  flexDirection:'row'
+},
 
 card: {
   backgroundColor: '#fff',
@@ -132,8 +167,9 @@ content: {
   padding: 16,
 },
 date: {
-  fontSize: 14,
-  color: '#777',
+  fontSize: 18,
+  color: '#F0635A',
+  fontWeight:'700'
 },
 title: {
   fontSize: 18,
