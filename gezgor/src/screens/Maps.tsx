@@ -1,57 +1,41 @@
 
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,Dimensions } from 'react-native';
 import MapView, { Marker, Region } from 'react-native-maps';
 
 const Maps = () => {
-  interface MapPickerProps {
-    onLocationSelected: (location: { latitude: number; longitude: number }) => void;
-  }
-  
-  const MapPicker: React.FC<MapPickerProps> = ({ onLocationSelected }) => {
-    const [location, setLocation] = useState<{ latitude: number; longitude: number } | null>(null);
-    const [mapRegion, setMapRegion] = useState<Region>({
-      latitude: 37.78825,
-      longitude: -122.4324,
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
+
+  return (
+    <MapView
+    style={{
+      height: windowHeight,
+      marginBottom: -30
+    }}
+    initialRegion={{
+      latitude: 40.55794260068981,
+      longitude: 49.69755334457113,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
-    });
-  
-    useEffect(() => {
-      if (location) {
-        onLocationSelected(location);
-      }
-    }, [location, onLocationSelected]);
-  
-    const handleRegionChange = (region: Region) => {
-      setMapRegion(region);
-    };
-  
-    const handleMapPress = (event: MapView.MapEvent) => {
-      setLocation({
-        latitude: event.nativeEvent.coordinate.latitude,
-        longitude: event.nativeEvent.coordinate.longitude,
-      });
-    };
-  return (
-    <View style={styles.container}>
-    <MapView
-      style={styles.map}
-      initialRegion={mapRegion}
-      onRegionChangeComplete={handleRegionChange}
-      onPress={handleMapPress}
+    }}
+    
+  >
+
+    <Marker
+      coordinate={{
+        latitude: 40.55794260068981,
+        longitude: 49.69755334457113
+      }}
+      title={"aa"}
+      description={"bbbbbbbbb"}
     >
-      {location && (
-        <Marker coordinate={{ latitude: location.latitude, longitude: location.longitude }} />
-      )}
-    </MapView>
-    <TouchableOpacity style={styles.button} onPress={() => setLocation(null)}>
-      <Text style={styles.buttonText}>Reset</Text>
-    </TouchableOpacity>
-  </View>
+    </Marker>
+
+  </MapView>
   )
 }
-}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
