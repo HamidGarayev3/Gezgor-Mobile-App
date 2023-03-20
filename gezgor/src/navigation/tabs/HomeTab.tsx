@@ -10,6 +10,7 @@ import Explore from '../../screens/Explore';
 import Maps from '../../screens/Maps';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import ExploreStack from '../stacks/ExploreStack';
 
 
 const Tab = createBottomTabNavigator();
@@ -26,7 +27,7 @@ const HomeTab = () => {
             headerShown:false
         }}
         name="Explore"
-        component={Explore} />
+        component={ExploreStack} />
     <Tab.Screen
     
         name="Home"
