@@ -11,6 +11,7 @@ import Maps from '../../screens/Maps';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import ExploreStack from '../stacks/ExploreStack';
+import HomeStack from '../stacks/HomeStack';
 
 
 const Tab = createBottomTabNavigator();
@@ -31,7 +32,7 @@ const HomeTab = () => {
     <Tab.Screen
     
         name="Home"
-        component={Home}
+        component={HomeStack}
         options={{
             tabBarIcon: ({ color, size, focused }) => <FontAwesomeIcon size={size} color={color} icon={faHouse} />,
             header: () => <HomeTitle />,

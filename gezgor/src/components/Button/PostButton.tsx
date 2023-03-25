@@ -11,7 +11,7 @@ const PostButton = () => {
 <View style={{
         top:530,
         borderRadius: 35,
-        backgroundColor: theme.colors.blue[900],
+        backgroundColor: theme.colors.purple[700],
         width: 46,
         height: 46,
         zIndex: 100,

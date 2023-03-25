@@ -24,29 +24,28 @@ const Explore = ({navigation}:any) => {
   
   return (
     <View style={{flex:1}}>
-
-      <View style={styles.ExploreTabTop}>
-        <View style={{flexDirection:"row",paddingTop:20,paddingHorizontal:20,justifyContent:'space-between'}}><FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faBarsStaggered}></FontAwesomeIcon>
-        <View style={styles.ExploreTabTopLocation}><Text style={styles.ExploreTabTopLocationText}>Current Location</Text></View>
-        <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faBell}></FontAwesomeIcon>
-        </View>
-        <View style={styles.SearchBar} >
-          <View style={{flexDirection:'row'}} >
-          <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faMagnifyingGlass}></FontAwesomeIcon>
-          <TextInput placeholderTextColor={theme.colors.white[100]}  placeholder='| Search' style={styles.ExploreSearchInput} ></TextInput>
-          </View>
-          <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faFilter}></FontAwesomeIcon>
-        </View>
-        
-        <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:10}}>
-        <View style={{flexDirection:'row',justifyContent:'space-between',marginLeft:18}}></View>
-        <View style={{flex:1}}><ExploreTopCategory iconName={faUtensils} backgroundColor='#29D697' buttonNamme='Food'></ExploreTopCategory></View>
-        <View style={{flex:1}}><ExploreTopCategory iconName={faPalette} backgroundColor='#46CDFB' buttonNamme='Art'></ExploreTopCategory></View>
-        <View style={{flex:1}}><ExploreTopCategory iconName={faMusic} backgroundColor='#F59762' buttonNamme='Music'></ExploreTopCategory></View>
-        </View>
-        
+<View style={styles.ExploreTabTop}>
+    <View style={{flexDirection:"row",paddingTop:20,paddingHorizontal:20,justifyContent:'space-between'}}><FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faBarsStaggered}></FontAwesomeIcon>
+    <View style={styles.ExploreTabTopLocation}><Text style={styles.ExploreTabTopLocationText}>Current Location</Text></View>
+    <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faBell}></FontAwesomeIcon>
+    </View>
+    <View style={styles.SearchBar} >
+      <View style={{flexDirection:'row'}} >
+      <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faMagnifyingGlass}></FontAwesomeIcon>
+      <TextInput placeholderTextColor={theme.colors.white[100]}  placeholder='| Search' style={styles.ExploreSearchInput} ></TextInput>
       </View>
-      <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:20,marginTop:50,marginBottom:20}}>
+      <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faFilter}></FontAwesomeIcon>
+    </View>
+    
+    <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:10}}>
+    <View style={{flexDirection:'row',justifyContent:'space-between',marginLeft:18}}></View>
+    <View style={{flex:1}}><ExploreTopCategory iconName={faUtensils} backgroundColor='#29D697' buttonNamme='Food'></ExploreTopCategory></View>
+    <View style={{flex:1}}><ExploreTopCategory iconName={faPalette} backgroundColor='#46CDFB' buttonNamme='Art'></ExploreTopCategory></View>
+    <View style={{flex:1}}><ExploreTopCategory iconName={faMusic} backgroundColor='#F59762' buttonNamme='Music'></ExploreTopCategory></View>
+    </View>
+    
+  </View>
+      <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:20,marginTop:20,marginBottom:20}}>
         <Text style={{fontSize:18,color:'#120D26',fontWeight:'600',marginLeft:10}}>Upcoming Events</Text>
         <Pressable><Text style={{fontSize:14,color:'#747688',fontWeight:'600',marginLeft:140}} >See All</Text></Pressable>
         <FontAwesomeIcon style={{marginTop:3}} size={14} color={theme.colors.white[900]} icon={faCaretRight}></FontAwesomeIcon>
@@ -102,7 +101,7 @@ return (
 
 const styles = StyleSheet.create({
   ExploreTabTop:{
-    flex:2,
+    flex:2.475,
     width:'100%',
     height:179,
     backgroundColor:theme.colors.purple[900],
@@ -165,6 +164,7 @@ card: {
   overflow: 'hidden',
   width:237,
   marginHorizontal:5,
+  minHeight:255
 },
 image: {
   width: 218,
