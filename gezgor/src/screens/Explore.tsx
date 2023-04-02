@@ -34,7 +34,6 @@ const Explore = ({navigation}:any) => {
       <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faMagnifyingGlass}></FontAwesomeIcon>
       <TextInput placeholderTextColor={theme.colors.white[100]}  placeholder='| Search' style={styles.ExploreSearchInput} ></TextInput>
       </View>
-      <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faFilter}></FontAwesomeIcon>
     </View>
     
     <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:10}}>

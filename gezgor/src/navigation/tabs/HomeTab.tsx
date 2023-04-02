@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCompass, faUser } from '@fortawesome/free-solid-svg-icons';
 import Home from '../../screens/Home';
-import Profile from '../../screens/Profile';
+import Profile from '../../screens/Profile/Profile';
 import HomeTitle from '../../components/Home/HomeTitle';
 import Explore from '../../screens/Explore';
 import Maps from '../../screens/Maps';
@@ -12,6 +12,11 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import ExploreStack from '../stacks/ExploreStack';
 import HomeStack from '../stacks/HomeStack';
+import ProfileStack from '../stacks/ProfileStack';
+import EditProfileScreen from '../../screens/Profile/EditProfileScreen';
+import InterestsEditScreen from '../../screens/Profile/InterestsEditScreen';
+
+
 
 
 const Tab = createBottomTabNavigator();
@@ -50,7 +55,7 @@ const HomeTab = () => {
         }} />
             <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileStack}
         options={{
             tabBarIcon: ({ color, size, focused }) => <FontAwesomeIcon size={size} color={color} icon={faUser} />,
             header: () => <HomeTitle />,

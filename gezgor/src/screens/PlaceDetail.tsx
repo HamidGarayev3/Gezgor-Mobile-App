@@ -1,7 +1,7 @@
 import { View, Text, Dimensions,StyleSheet,Image, ScrollView } from 'react-native'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faArrowLeft,faCalendarDays,faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays,faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { TouchableOpacity } from 'react-native/Libraries/Components/Touchable/TouchableOpacity';
 import Explore from './Explore';
 import { BottomTabBar } from '@react-navigation/bottom-tabs';
