@@ -14,7 +14,7 @@ const CommmonButton = ({title,price}:CommmonButtons) => {
 
 <View style={{zIndex:999,position:'absolute',bottom:0,marginBottom:10,marginLeft:60}}>
 <TouchableOpacity style={{flexDirection:'row',width:271,height:58,backgroundColor:'#5669FF',justifyContent:'center',alignContent:'center',alignItems:'center',borderRadius:20,}}>
-        <Text style={{textAlign:'center',fontSize:16,fontWeight:'400',color:theme.colors.white[500]}}>{title} {price}$</Text>
+        <Text style={{textAlign:'center',fontSize:16,fontWeight:'600',color:theme.colors.white[500]}}>{title} {price}</Text>
 
      </TouchableOpacity>
      <View style={{width:30,height:30,justifyContent:'center',alignItems:'center',borderRadius:35,backgroundColor:'#3D56F0',position:'absolute',marginLeft:230,marginTop:15}}>

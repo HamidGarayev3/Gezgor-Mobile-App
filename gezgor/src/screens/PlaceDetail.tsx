@@ -72,7 +72,7 @@ const PlaceDetail = ({route,navigation}:any) => {
         </View>
         </View>
         
-        <CommmonButton title='Buy Ticket' price={place?.price}></CommmonButton>
+        <CommmonButton title='Join Event'></CommmonButton>
         <View style={{flex:2}}>
           <ScrollView style={{padding:20}}>
             <Text style={{fontSize:18,fontWeight:'600',color:'#120D26',marginBottom:10}}>About Event</Text>
