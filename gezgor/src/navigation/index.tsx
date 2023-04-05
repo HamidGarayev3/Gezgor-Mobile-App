@@ -7,13 +7,20 @@ import ExploreStack from './stacks/ExploreStack';
 import PostStack from './stacks/PostStack';
 import ProfileStack from './stacks/ProfileStack';
 import HomeStack from './stacks/HomeStack';
+import Splash from '../screens/Splash';
+import Login from '../screens/Login';
 
 const Stack = createNativeStackNavigator();
 
 const index = () => {
   return (
     <Stack.Navigator>
-    
+                                    {/* <Stack.Screen
+                                    options={{
+                                        headerShown: false
+                                    }}
+                                    name="Splash"
+                                    component={Splash} /> */}
                 <>
                                  <Stack.Screen options={{
                                    headerShown: false

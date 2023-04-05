@@ -9,6 +9,7 @@ interface EditProfileProps {
 
 const EditProfileScreen: React.FC<EditProfileProps> = ({ name, aboutMe, photoUri,navigation }:any) => {
   const text='Just like Sharp Solid and the Sharp Regular icons, Sharp Light favors a clean, modern elegance when looking for an on-trend design that portrays a serious but delicate feel. Not sure when using Light is the right call? Take a look at other elements in your project like typography and UI elements. '
+  const namee='Ashfak Sayem'
   const [newName, setNewName] = useState(name);
   const [newAboutMe, setNewAboutMe] = useState(aboutMe);
 
@@ -38,7 +39,7 @@ const EditProfileScreen: React.FC<EditProfileProps> = ({ name, aboutMe, photoUri
         <Text style={styles.label}>Name:</Text>
         <TextInput
           style={styles.input}
-          value={newName}
+          value={namee}
           onChangeText={setNewName}
         />
       </View>

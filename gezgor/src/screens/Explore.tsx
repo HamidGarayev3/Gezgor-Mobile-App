@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet,Dimensions, FlatList, TextInput, TouchableOpacity ,Pressable} from 'react-native'
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import PostButton from '../components/Button/PostButton'
 import { theme } from '../assets&styles/theme'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -7,6 +7,15 @@ import { faBarsStaggered,faBell,faMagnifyingGlass,faFilter,faPalette,faUtensils,
 import ExploreTopCategory from '../components/ExploreTopCategory'
 import { Image } from '@rneui/base'
 import PlaceDetail from './PlaceDetail'
+import { Animated } from 'react-native-maps'
+import { Modal } from 'react-native-paper'
+import ModalMenu from '../components/ModalMenu'
+import Menu from '../components/Menu'
+import Notifications from './Notifications'
+import Splash from './Splash'
+
+
+
 
 
 
@@ -17,17 +26,53 @@ const DATA=[
 const Explore = ({navigation}:any) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
-
   const [searchQuery, setSearchQuery] = React.useState('');
 
+
   const onChangeSearch = query => setSearchQuery(query);
+
+  const [menuVisible, setMenuVisible] = useState(false);
+
+    const handleMenuPress = () => {
+      setMenuVisible(true);
+    };
   
+    const handleCloseMenu = () => {
+      setMenuVisible(false);
+    };
+  
+    type MenuItem = {
+      text: string;
+      onPress: () => void;
+    };
+    const [modalVisible, setModalVisible] = useState(false);
+
+    const menuItems: MenuItem[] = [
+      {
+        text: 'Option 1',
+        onPress: () => console.log('Option 1 pressed'),
+      },
+      {
+        text: 'Option 2',
+        onPress: () => console.log('Option 2 pressed'),
+      },
+      {
+        text: 'Option 3',
+        onPress: () => console.log('Option 3 pressed'),
+      },
+    ];
   return (
+    
+
     <View style={{flex:1}}>
 <View style={styles.ExploreTabTop}>
-    <View style={{flexDirection:"row",paddingTop:20,paddingHorizontal:20,justifyContent:'space-between'}}><FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faBarsStaggered}></FontAwesomeIcon>
+    <View style={{flexDirection:"row",paddingTop:20,paddingHorizontal:20,justifyContent:'space-between'}}><TouchableOpacity onPress={() =>
+            navigation.navigate('Menu')
+            } ><FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faBarsStaggered}></FontAwesomeIcon></TouchableOpacity>
     <View style={styles.ExploreTabTopLocation}><Text style={styles.ExploreTabTopLocationText}>Current Location</Text></View>
-    <FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faBell}></FontAwesomeIcon>
+    <TouchableOpacity onPress={() =>
+            navigation.navigate('Notifications')
+            }><FontAwesomeIcon size={24} color={theme.colors.white[900]} icon={faBell}></FontAwesomeIcon></TouchableOpacity>
     </View>
     <View style={styles.SearchBar} >
       <View style={{flexDirection:'row'}} >
@@ -46,7 +91,9 @@ const Explore = ({navigation}:any) => {
   </View>
       <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:20,marginTop:20,marginBottom:20}}>
         <Text style={{fontSize:18,color:'#120D26',fontWeight:'600',marginLeft:10}}>Upcoming Events</Text>
-        <Pressable><Text style={{fontSize:14,color:'#747688',fontWeight:'600',marginLeft:140}} >See All</Text></Pressable>
+        <Pressable onPress={() =>
+            navigation.navigate('Home')
+            }><Text style={{fontSize:14,color:'#747688',fontWeight:'600',marginLeft:140}} >See All</Text></Pressable>
         <FontAwesomeIcon style={{marginTop:3}} size={14} color={theme.colors.white[900]} icon={faCaretRight}></FontAwesomeIcon>
       </View>
       <View style={{flex:4,marginLeft:20}}>
@@ -71,7 +118,9 @@ const Explore = ({navigation}:any) => {
 
       <View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:20,marginTop:50,marginBottom:20}}>
         <Text style={{fontSize:18,color:'#120D26',fontWeight:'600',marginLeft:5}}>Nearby You</Text>
-        <Pressable><Text style={{fontSize:14,color:'#747688',fontWeight:'600',marginLeft:190}} >See All</Text></Pressable>
+        <Pressable onPress={() =>
+            navigation.navigate('Home')
+            }><Text style={{fontSize:14,color:'#747688',fontWeight:'600',marginLeft:190}} >See All</Text></Pressable>
         <FontAwesomeIcon style={{marginTop:3}} size={14} color={theme.colors.white[900]} icon={faCaretRight}></FontAwesomeIcon>
       </View>
     </View>
@@ -120,7 +169,7 @@ const styles = StyleSheet.create({
     justifyContent:'space-between'
   },
   ExploreSearchInput:{
-    height:32,
+    height:40,
     fontSize:20
   },
   CategorySport:{
